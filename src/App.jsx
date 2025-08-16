@@ -1,19 +1,16 @@
-import { useReducer, useState } from "react";
+import { useState } from "react";
 import "./App.css";
-import AddNewNote from "./AddNewNote";
-import NoteList from "./NoteList";
 import NoteHeader from "./NoteHeader";
+import NoteApp from "./NoteApp";
+import AppProvider from "./providers/AppProvider";
 function App() {
   const [sortBy, setSortBy] = useState("latest");
 
   return (
-    <div>
+    <AppProvider>
       <NoteHeader sortBy={sortBy} onSort={(e) => setSortBy(e.target.value)} />
-      <div className="note-app">
-        <AddNewNote />
-        <NoteList sortBy={sortBy} />
-      </div>
-    </div>
+      <NoteApp sortBy={sortBy} />
+    </AppProvider>
   );
 }
 
