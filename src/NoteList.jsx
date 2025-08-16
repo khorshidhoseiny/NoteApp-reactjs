@@ -35,6 +35,7 @@ function NoteList({ sortBy }) {
       {sortedNote.map((note) => {
         return (
           <div
+            data-testid="note-item"
             key={note.id}
             className={`note-item ${note.completed ? "completed" : ""}`}
           >
